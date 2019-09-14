@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using OnlineShoppingStore.DAL;
 using OnlineShoppingStore.Models;
+using OnlineShoppingStore.Models.Home;
 using OnlineShoppingStore.Repository;
 using System;
 using System.Collections.Generic;
@@ -12,16 +13,17 @@ namespace OnlineShoppingStore.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            return View();
+            HomeIndexVM model = new HomeIndexVM();
+            return View(model.CreateModel(search));
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "About THE BOOK MARKET";
 
-            return View();
+            return View("About");
         }
        
     }

@@ -127,6 +127,7 @@
           <Property Name="Inventory_Name" Type="varchar" MaxLength="30" />
           <Property Name="Inventory_Description" Type="varchar" MaxLength="150" />
           <Property Name="Inventory_Quantity" Type="int" />
+          <Property Name="ProductImage" Type="varchar(max)" />
           <Property Name="Minimum_Quantity" Type="int" />
           <Property Name="StockTurn_ID" Type="int" />
         </EntityType>
@@ -1273,6 +1274,7 @@
           <Property Name="Inventory_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Inventory_Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Inventory_Quantity" Type="Int32" />
+          <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Minimum_Quantity" Type="Int32" />
           <Property Name="StockTurn_ID" Type="Int32" />
           <NavigationProperty Name="Inventory_Type" Relationship="Self.FK__Inventory__Inven__164452B1" FromRole="Inventory" ToRole="Inventory_Type" />
@@ -2464,6 +2466,7 @@
                 <ScalarProperty Name="Inventory_Name" ColumnName="Inventory_Name" />
                 <ScalarProperty Name="Inventory_Description" ColumnName="Inventory_Description" />
                 <ScalarProperty Name="Inventory_Quantity" ColumnName="Inventory_Quantity" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
                 <ScalarProperty Name="Minimum_Quantity" ColumnName="Minimum_Quantity" />
                 <ScalarProperty Name="StockTurn_ID" ColumnName="StockTurn_ID" />
               </MappingFragment>

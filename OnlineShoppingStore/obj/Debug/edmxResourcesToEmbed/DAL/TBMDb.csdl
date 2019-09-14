@@ -149,6 +149,7 @@
     <Property Name="Inventory_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Inventory_Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="Inventory_Quantity" Type="Int32" />
+    <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Minimum_Quantity" Type="Int32" />
     <Property Name="StockTurn_ID" Type="Int32" />
     <NavigationProperty Name="Inventory_Type" Relationship="Self.FK__Inventory__Inven__164452B1" FromRole="Inventory" ToRole="Inventory_Type" />

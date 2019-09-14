@@ -122,6 +122,7 @@
     <Property Name="Inventory_Name" Type="varchar" MaxLength="30" />
     <Property Name="Inventory_Description" Type="varchar" MaxLength="150" />
     <Property Name="Inventory_Quantity" Type="int" />
+    <Property Name="ProductImage" Type="varchar(max)" />
     <Property Name="Minimum_Quantity" Type="int" />
     <Property Name="StockTurn_ID" Type="int" />
   </EntityType>

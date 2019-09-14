@@ -31,6 +31,7 @@ namespace OnlineShoppingStore.DAL
         public string Inventory_Name { get; set; }
         public string Inventory_Description { get; set; }
         public Nullable<int> Inventory_Quantity { get; set; }
+        public string ProductImage { get; set; }
         public Nullable<int> Minimum_Quantity { get; set; }
         public Nullable<int> StockTurn_ID { get; set; }
     

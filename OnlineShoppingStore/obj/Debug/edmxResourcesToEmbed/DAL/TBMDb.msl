@@ -131,6 +131,7 @@
           <ScalarProperty Name="Inventory_Name" ColumnName="Inventory_Name" />
           <ScalarProperty Name="Inventory_Description" ColumnName="Inventory_Description" />
           <ScalarProperty Name="Inventory_Quantity" ColumnName="Inventory_Quantity" />
+          <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
           <ScalarProperty Name="Minimum_Quantity" ColumnName="Minimum_Quantity" />
           <ScalarProperty Name="StockTurn_ID" ColumnName="StockTurn_ID" />
         </MappingFragment>
