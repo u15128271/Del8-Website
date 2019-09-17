@@ -125,6 +125,7 @@
     <Property Name="ProductImage" Type="varchar(max)" />
     <Property Name="Minimum_Quantity" Type="int" />
     <Property Name="StockTurn_ID" Type="int" />
+    <Property Name="Inventory_Price" Type="int" />
   </EntityType>
   <EntityType Name="Inventory_Level">
     <Key>
@@ -149,6 +150,7 @@
     <Property Name="Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Inventory_ID" Type="int" />
     <Property Name="DateActive" Type="datetime" />
+    <Property Name="Price" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Inventory_Supplier">
     <Key>
@@ -310,6 +312,16 @@
     </Key>
     <Property Name="StockTurn_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Turn_Over_Ratio" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TaxRate">
     <Key>
@@ -929,6 +941,7 @@
     <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sale_Line" EntityType="Self.Sale_Line" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stock_Turns" EntityType="Self.Stock_Turns" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaxRate" EntityType="Self.TaxRate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />

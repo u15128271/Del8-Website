@@ -34,6 +34,8 @@ namespace OnlineShoppingStore.DAL
         public string ProductImage { get; set; }
         public Nullable<int> Minimum_Quantity { get; set; }
         public Nullable<int> StockTurn_ID { get; set; }
+        public string Price { get; set; }
+        public Nullable<int> Inventory_Price1 { get; set; }
     
         public virtual Inventory_Type Inventory_Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

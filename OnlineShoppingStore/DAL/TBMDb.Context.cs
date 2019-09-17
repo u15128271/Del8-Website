@@ -62,5 +62,6 @@ namespace OnlineShoppingStore.DAL
         public virtual DbSet<User_Role> User_Role { get; set; }
         public virtual DbSet<Write_Off_Line> Write_Off_Line { get; set; }
         public virtual DbSet<Write_Off_Stock> Write_Off_Stock { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

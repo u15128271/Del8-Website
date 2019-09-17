@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="The_Book_MarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="The_Book_MarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="Book_ID" />
@@ -130,6 +130,7 @@
           <Property Name="ProductImage" Type="varchar(max)" />
           <Property Name="Minimum_Quantity" Type="int" />
           <Property Name="StockTurn_ID" Type="int" />
+          <Property Name="Inventory_Price" Type="int" />
         </EntityType>
         <EntityType Name="Inventory_Level">
           <Key>
@@ -154,6 +155,7 @@
           <Property Name="Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Inventory_ID" Type="int" />
           <Property Name="DateActive" Type="datetime" />
+          <Property Name="Price" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Inventory_Supplier">
           <Key>
@@ -315,6 +317,16 @@
           </Key>
           <Property Name="StockTurn_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Turn_Over_Ratio" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TaxRate">
           <Key>
@@ -934,6 +946,7 @@
           <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sale_Line" EntityType="Self.Sale_Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock_Turns" EntityType="Self.Stock_Turns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TaxRate" EntityType="Self.TaxRate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
@@ -1120,8 +1133,7 @@
             <End Role="Write_Off_Line" EntitySet="Write_Off_Line" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="The_Book_MarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1272,7 +1284,7 @@
           <Property Name="Inventory_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="InventoryType_ID" Type="Int32" />
           <Property Name="Inventory_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Inventory_Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Inventory_Description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="Inventory_Quantity" Type="Int32" />
           <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Minimum_Quantity" Type="Int32" />
@@ -1286,6 +1298,8 @@
           <NavigationProperty Name="Sale_Line" Relationship="Self.FK__Sale_Line__Inven__3A81B327" FromRole="Inventory" ToRole="Sale_Line" />
           <NavigationProperty Name="Write_Off_Stock" Relationship="Self.FK__Write_Off__Inven__44FF419A" FromRole="Inventory" ToRole="Write_Off_Stock" />
           <NavigationProperty Name="Write_Off_Line" Relationship="Self.FK__Write_Off__Inven__48CFD27E" FromRole="Inventory" ToRole="Write_Off_Line" />
+          <Property Name="Price" Type="String" />
+          <Property Name="Inventory_Price1" Type="Int32" />
         </EntityType>
         <EntityType Name="Inventory_Level">
           <Key>
@@ -1314,6 +1328,7 @@
           <Property Name="Inventory_ID" Type="Int32" />
           <Property Name="DateActive" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Inventory" Relationship="Self.FK__Inventory__Inven__1DE57479" FromRole="Inventory_Price" ToRole="Inventory" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Inventory_Supplier">
           <Key>
@@ -2329,7 +2344,18 @@
             <End Role="Write_Off_Stock" EntitySet="Write_Off_Stock" />
             <End Role="Write_Off_Line" EntitySet="Write_Off_Line" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="The_Book_MarketModel.sysdiagram" />
         </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2461,6 +2487,7 @@
           <EntitySetMapping Name="Inventories">
             <EntityTypeMapping TypeName="The_Book_MarketModel.Inventory">
               <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="Inventory_Price1" ColumnName="Inventory_Price" />
                 <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
                 <ScalarProperty Name="InventoryType_ID" ColumnName="InventoryType_ID" />
                 <ScalarProperty Name="Inventory_Name" ColumnName="Inventory_Name" />
@@ -2492,6 +2519,7 @@
           <EntitySetMapping Name="Inventory_Price">
             <EntityTypeMapping TypeName="The_Book_MarketModel.Inventory_Price">
               <MappingFragment StoreEntitySet="Inventory_Price">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Price_ID" ColumnName="Price_ID" />
                 <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
                 <ScalarProperty Name="DateActive" ColumnName="DateActive" />
@@ -2716,6 +2744,17 @@
               <MappingFragment StoreEntitySet="Write_Off_Stock">
                 <ScalarProperty Name="Write_Off_ID" ColumnName="Write_Off_ID" />
                 <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="The_Book_MarketModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

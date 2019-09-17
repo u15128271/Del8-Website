@@ -210,3 +210,7 @@ C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\obj\Debug\Onl
 C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\obj\Debug\OnlineShoppingStore.csproj.CopyComplete
 C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\obj\Debug\OnlineShoppingStore.dll
 C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\obj\Debug\OnlineShoppingStore.pdb
+C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\bin\PagedList.dll
+C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\bin\PagedList.Mvc.dll
+C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\bin\PagedList.xml
+C:\Users\Itumeleng\Desktop\OnlineShoppingStore\OnlineShoppingStore\bin\PagedList.Mvc.xml

@@ -147,7 +147,7 @@
     <Property Name="Inventory_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="InventoryType_ID" Type="Int32" />
     <Property Name="Inventory_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Inventory_Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Inventory_Description" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
     <Property Name="Inventory_Quantity" Type="Int32" />
     <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Minimum_Quantity" Type="Int32" />
@@ -161,6 +161,8 @@
     <NavigationProperty Name="Sale_Line" Relationship="Self.FK__Sale_Line__Inven__3A81B327" FromRole="Inventory" ToRole="Sale_Line" />
     <NavigationProperty Name="Write_Off_Stock" Relationship="Self.FK__Write_Off__Inven__44FF419A" FromRole="Inventory" ToRole="Write_Off_Stock" />
     <NavigationProperty Name="Write_Off_Line" Relationship="Self.FK__Write_Off__Inven__48CFD27E" FromRole="Inventory" ToRole="Write_Off_Line" />
+    <Property Name="Price" Type="String" />
+    <Property Name="Inventory_Price1" Type="Int32" />
   </EntityType>
   <EntityType Name="Inventory_Level">
     <Key>
@@ -189,6 +191,7 @@
     <Property Name="Inventory_ID" Type="Int32" />
     <Property Name="DateActive" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Inventory" Relationship="Self.FK__Inventory__Inven__1DE57479" FromRole="Inventory_Price" ToRole="Inventory" />
+    <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Inventory_Supplier">
     <Key>
@@ -1204,5 +1207,16 @@
       <End Role="Write_Off_Stock" EntitySet="Write_Off_Stock" />
       <End Role="Write_Off_Line" EntitySet="Write_Off_Line" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="The_Book_MarketModel.sysdiagram" />
   </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

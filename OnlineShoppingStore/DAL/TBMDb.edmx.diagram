@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="df133584363344b8b9294174591a892f" Name="Diagram1">
+      <Diagram DiagramId="df133584363344b8b9294174591a892f" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="The_Book_MarketModel.Book" Width="1.5" PointX="15" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="The_Book_MarketModel.Book_Condition" Width="1.5" PointX="17.25" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="The_Book_MarketModel.Book_Request" Width="1.5" PointX="15" PointY="0.75" IsExpanded="true" />
@@ -87,6 +87,7 @@
         <AssociationConnector Association="The_Book_MarketModel.FK__Sale_Line__Sale___398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="The_Book_MarketModel.FK__User__UserRole_I__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="The_Book_MarketModel.FK__Write_Off__Write__47DBAE45" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="The_Book_MarketModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
