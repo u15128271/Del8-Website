@@ -14,7 +14,7 @@ namespace OnlineShoppingStore.Models.Home
     public class HomeIndexVM
     {
         public GenericUnitOfWork _unitOfWork = new GenericUnitOfWork();
-        TBMEntities context = new TBMEntities();
+        TBmEntities context = new TBmEntities();
         public IPagedList<Inventory> ListOfProducts { get; set; }
         public HomeIndexVM CreateModel(string search,int pageSize, int? page)
         {

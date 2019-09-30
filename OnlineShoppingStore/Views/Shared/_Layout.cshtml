@@ -13,103 +13,132 @@
 
 </head>
 <body>
- 
+
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="logo">
-                  <h1>
-                    <img src="~/Images/bm.jpg" width="44"/>
-                    <a href="#">THE<span style="color:mediumpurple">BOOK MARKET</span></a></h1>
-                    
+                    <h1>
+                        <a href="@Url.Action("Index","Home")"><img src="~/Images/bm.jpg" width="44" /></a>
+                        <a href="@Url.Action("Index","Home")">THE<span style="color:mediumpurple">BOOK MARKET</span></a>
+                    </h1>
+
                 </div>
             </div>
 
+            @*<div class="olContent f1"><h2 style="color:black">Search Product/Category</h2></div>
+            <form method="post">
+                <div class="olSearch fr">
+                    <input type="text" name="search" placeholder="Enter Keyword" class="inputComn houseText form-control" />
+                    <div class="searchIcon">
+                        <button type="button" class="searchBtn">
+                            <img src="~/Images/searchIcon.png" />
+                        </button>
+                    </div>
+                </div>
+            </form>*@
+
             <div class="col-md-6 col-sm-6 col-xs-6">
                 @*<div class="account">
-           <ul>
-               <li>
-                   <div class="hidden-xs">
-                       <h4><a>Call</a></h4>
-                       <p>018##-######</p>
-                   </div>
+               <ul>
+                   <li>
+                       <div class="hidden-xs">
+                           <h4><a>Call</a></h4>
+                           <p>018##-######</p>
+                       </div>
 
-                   <div class="visible-xs">
+                       <div class="visible-xs">
 
-                       <p>018##-######</p>
-                   </div>
+                           <p>018##-######</p>
+                       </div>
 
-               </li>
-           </ul>
-        </div>*@
+                   </li>
+               </ul>
+            </div>*@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Cart(3)<b class="caret"></b></a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-shopping-cart">Cart</i><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             @if (Session["cart"] != null)
                             {
                                 foreach (var item in (List<Item>)Session["cart"])
                                 {
                                     <li>
-                                     <a href="@Url.Action("RemoveFromCart","Home", new {Inventory_ID =item.Inventory.Inventory_ID })">@item.Inventory.Inventory_Name (@item.Inventory_Quantity) <i class="fa fa-times"></i></a>
+                                        <a href="@Url.Action("RemoveFromCart","Home", new {Inventory_ID =item.Inventory.Inventory_ID })">@item.Inventory.Inventory_Name (@item.Inventory_Quantity) <i class="fa fa-times"></i></a>
                                     </li>
                                 }
                             }
 
 
                             <li class="divider"></li>
-                            <li><a href="#">IT</a></li>
+                            <li><a href="@Url.Action("CheckOut","Home")">Checkout</a></li>
                         </ul>
-                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <a href="https://wa.me/27795982924" target="_blank"><Img src="~/Images/whatsapp.jpg" width="22" />
+                Let's Chat</a>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="nav-menus">
+
+                    <ul class="nav nav-pills">
+                        <li class="active"><a style="border-radius:initial; color:plum" href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a style="border-radius:initial;color:plum" href="@Url.Action("About","Home")">About</a></li>
+                        <li><a style="border-radius:initial;color:plum" href="@Url.Action("Location","Home")">Find Us</a></li>
+                        <li><a style="border-radius:initial;color:plum" href="@Url.Action("Contact","Home")">Contact Us</a></li>
+                        <li><a style="border-radius:initial;color:plum" href="@Url.Action("FAQ","Home")">FAQ</a></li>
+
                     </ul>
-</div> 
-            </div>
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="nav-menus">
-                       
-                        <ul class="nav nav-pills">
-                            <li class="active" ><a style="border-radius:initial; color:plum" href="#">Home</a></li>
-                            <li><a style="border-radius:initial;color:plum" href="../Views/Home/About">About</a></li>
-                            <li><a style="border-radius:initial;color:plum" href="#">Products</a></li>
-                            <li><a style="border-radius:initial;color:plum" href="#">Location</a></li>
-                        </ul>
-                    </div>
                 </div>
-
             </div>
-          
-        
+
+        </div>
+
         @RenderBody()
         <hr />
         <footer>
+            <div class="timing,container">
+                <h4 style="color:mediumpurple">Timing</h4>
+                <h6>Mon - Fri: 9am - 5pm</h6>
+                <h6>​​Saturday: 9am - 5pm</h6>
+                <h6>​Sunday: CLOSED</h6>
+            </div>
             <div class="row">
                 <div class="col-md-12 copyright">
-                    
+
                     <div class="col-md-6 col-sm-6 copyright-left">
                         <p>&copy; @DateTime.Now.Year - THE BOOK MARKET. All right reserved.</p>
-                    </div> 
+                    </div>
                     <div>
 
                     </div>
-                    
+
+
                     <div class="col-md-6 col-sm-6 copyright-right">
-                       
+
                         <ul class="list-unstyled list-social">
                             <li><a href="https://www.facebook.com/TheBookMarket01/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                            <li><a href="https://twitter.com/TheBookMarket"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://www.instagram.com/the_book_market/"><i class="fa fa-instagram"></i></a></li>
-                           
+                            <li><a href="https://twitter.com/TheBookMarket" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/the_book_market/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://wa.me/27795982924" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+
                         </ul>
-                    </div> 
+                    </div>
                 </div>
             </div>
-            
+
         </footer>
     </div>
 
+
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

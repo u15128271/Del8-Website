@@ -11,97 +11,102 @@
     {
         @Html.AntiForgeryToken()
 
-        <div>
-            <h4>Product</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Inventory_ID, new { htmlAttributes = new { @class = "form-control" } })
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Inventory_Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Inventory_Name, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Inventory_Name, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            @{
-                List<SelectListItem> data = ViewBag.CategoryList;
-            }
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.InventoryType_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.InventoryType_ID, data, "---Select---", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.InventoryType_ID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            @*<div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.CheckBox("IsActive")
-                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IsDelete, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.CheckBox("IsDelete")
-                        @Html.ValidationMessageFor(model => model.IsDelete, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>*@
-            @*@Html.HiddenFor(model => model.CreatedDate)*@
-
-            <div class="col-md-6">
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <input type="file" name="file" id="file" style="width: 100%;" />
-                        @Html.ValidationMessageFor(model => model.ProductImage, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            @*<div class="col-md-6">
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.CheckBox("IsFeatured")
-                        @Html.ValidationMessageFor(model => model.IsFeatured, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>*@
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Inventory_Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Inventory_Quantity, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Inventory_Quantity, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Inventory_Price1, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Inventory_Price1, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Inventory_Price1, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" />
-                    </div>
+    <div>
+        <h4>Product</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Inventory_ID, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inventory_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inventory_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inventory_Name, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
+        @{
+            List<SelectListItem> data = ViewBag.CategoryList;
+        }
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.InventoryType_ID, new { htmlAttributes = new { @class = "form-control" } })
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inventory_Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Inventory_Type, data, "--Select---", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Inventory_Type, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        @*<div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("IsActive")
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsDelete, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("IsDelete")
+                    @Html.ValidationMessageFor(model => model.IsDelete, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+        @*@Html.HiddenFor(model => model.CreatedDate)*@
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="file" id="file" style="width: 100%;" />
+                    @Html.ValidationMessageFor(model => model.ProductImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        @*<div class="col-md-6">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("IsFeatured")
+                    @Html.ValidationMessageFor(model => model.IsFeatured, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inventory_Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inventory_Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inventory_Quantity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inventory_Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inventory_Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inventory_Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
     }
 </div>

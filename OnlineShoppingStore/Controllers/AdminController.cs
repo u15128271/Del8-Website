@@ -74,10 +74,10 @@ namespace OnlineShoppingStore.Controllers
         {
             return View(_unitOfWork.GetRepositoryInstance<Inventory>().GetProduct());
         }
-        public ActionResult ProductEdit(int Inventory_ID)
+        public ActionResult ProductEdit(int productId)
         {
             ViewBag.CategoryList = GetCategory();
-            return View(_unitOfWork.GetRepositoryInstance<Inventory>().GetFirstorDefault(Inventory_ID));
+            return View(_unitOfWork.GetRepositoryInstance<Inventory>().GetFirstorDefault(productId));
         }
         [HttpPost]
         public ActionResult ProductEdit(Inventory tbl, HttpPostedFileBase file)

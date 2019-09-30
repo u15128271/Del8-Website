@@ -15,7 +15,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Inventory</h4>
+            <h4>Add Inventory</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -32,18 +32,18 @@
                 List<SelectListItem> data = ViewBag.CategoryList;
             }
             <div class="form-group">
-                @Html.LabelFor(model => model.Inventory_Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Inventory_Type, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.Inventory_Description, data,"--Select---", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Inventory_Description, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(model => model.Inventory_Type, data,"--Select---", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Inventory_Type, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Inventory_Price1, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Inventory_Price, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Inventory_Price1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Inventory_Price1, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Inventory_Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inventory_Price, "", new { @class = "text-danger" })
                 </div>
             </div>
 

@@ -35,7 +35,7 @@ Inventory_Description varchar (150),
 Inventory_Quantity int ,
 [ProductImage] varchar (max),
 Minimum_Quantity int ,
-Price int,
+Inventory_Price int,
 StockTurn_ID int references Stock_Turns (StockTurn_ID)
 )
 GO

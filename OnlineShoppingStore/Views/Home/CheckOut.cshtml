@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Checkout</h2>
+<h2 style="color:mediumpurple">Checkout</h2>
 @if (Session["cart"] == null)
 {
     <div class="alert alert-danger">
@@ -14,7 +14,7 @@
 }
 else
 {
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="color:rebeccapurple">
         <thead>
             <tr>
                 <th>Product</th>
@@ -28,6 +28,7 @@ else
                 <tr>
                     <td>@item.Inventory.Inventory_Name</td>
                     <td>@item.Inventory_Quantity</td>
+                    @*<td>@item.Inventory.Inventory_Price</td>*@
                     <td>
                         <a href="@Url.Action("AddToCart", "Home", new { productId = item.Inventory.Inventory_ID, url="Checkout" })">
                             <i class="fa fa-plus"></i>
@@ -41,7 +42,7 @@ else
 
         </tbody>
     </table>
-    <a class="btn btn-success" href="@Url.Action("CheckoutDetails","Home")">Checkout >></a>
+    <a class="btn btn-success" href="@Url.Action("CheckoutDetail","Home")">Checkout >></a>
 
 }
 

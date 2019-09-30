@@ -1,50 +1,72 @@
 ﻿@using OnlineShoppingStore.Models.Home;
+@*@using OnlineShoppingStore.Models.Mail;*@
 @{
     ViewBag.Title = "CheckoutDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (Session["cart"] == null)
-{
-    <div class="alert alert-danger">
-        <strong>No product added to cart!</strong>
-    </div>
+<div>
+    @using (Html.BeginForm("CheckoutDetail", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        if (Session["cart"] == null)
+        {
+            <div class="alert alert-danger">
+                <strong>No product added to cart!</strong>
+            </div>
 
-}
-else
-{
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Line Total</th>
+        }
+        else
+        {
+            <table class="table table-bordered" style="color:rebeccapurple">
+                @*<tr>
+                        <td>To:</td>
+                        <td>@Html.TextBoxFor(model => model.To)</td>
+                    </tr>*@
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Line Total</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                int Total = 0;
-            }
-            @foreach (Item item in (List<Item>)Session["cart"])
-            {
-                int lineTotal = Convert.ToInt32(item.Inventory_Quantity * item.Inventory.Inventory_Price1);
-                Total = Convert.ToInt32(@Total + lineTotal);
-                <tr>
-                    <td>@item.Inventory.Inventory_Name</td>
-                    <td>@item.Inventory.Price</td>
-                    <td>@item.Inventory_Quantity</td>
-                    <td>@lineTotal</td>
-                </tr>
-            }
+                    </tr>
+                </thead>
+                <tbody>
+                    @*<tr>
+                            <td>Body:</td>
+                            <td>@Html.TextAreaFor(model => model.Body , new { rows = "4", cols = "10" })</td>
+                        </tr>*@
 
-            <tr>
-                <td colspan="4" class="text-right"><b>Total: @Total</b></td>
-            </tr>
-        </tbody>
-    </table>
-    <button class="btn btn-success">Payment >></button>
 
-}
+                    @{
+                        int Total = 0;
+                    }
+                    @foreach (Item item in (List<Item>)Session["cart"])
+                    {
+                        int lineTotal = Convert.ToInt32(item.Inventory_Quantity * item.Inventory.Inventory_Price);
+                        Total = Convert.ToInt32(@Total + lineTotal);
+                        <tr>
+                            <td>@item.Inventory.Inventory_Name</td>
+                            <td>@item.Inventory.Inventory_Price</td>
+                            <td>@item.Inventory_Quantity</td>
+                            <td>@lineTotal</td>
+                        </tr>
+                    }
 
+                    <tr>
+                        <td colspan="4" class="text-right"><b>Total: @Total</b></td>
+                    </tr>
+                </tbody>
+            </table>
+            <
+            <div class="col-md-9">
+                <a class="btn btn-danger">Click to Get Quotation</a>
+            </div>
+
+            <span style="color:purple">@ViewBag.Message</span>
+        }
+
+    }
+</div>
+
+      

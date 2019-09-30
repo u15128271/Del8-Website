@@ -18,7 +18,7 @@ namespace OnlineShoppingStore.DAL
         public Inventory()
         {
             this.Inventory_Level = new HashSet<Inventory_Level>();
-            this.Inventory_Price = new HashSet<Inventory_Price>();
+            this.Inventory_Price1 = new HashSet<Inventory_Price>();
             this.Order_Line = new HashSet<Order_Line>();
             this.Return_Sale = new HashSet<Return_Sale>();
             this.Sale_Line = new HashSet<Sale_Line>();
@@ -34,14 +34,13 @@ namespace OnlineShoppingStore.DAL
         public string ProductImage { get; set; }
         public Nullable<int> Minimum_Quantity { get; set; }
         public Nullable<int> StockTurn_ID { get; set; }
-        public string Price { get; set; }
-        public Nullable<int> Inventory_Price1 { get; set; }
+        public Nullable<int> Inventory_Price { get; set; }
     
         public virtual Inventory_Type Inventory_Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inventory_Level> Inventory_Level { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inventory_Price> Inventory_Price { get; set; }
+        public virtual ICollection<Inventory_Price> Inventory_Price1 { get; set; }
         public virtual Stock_Turns Stock_Turns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Line> Order_Line { get; set; }

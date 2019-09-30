@@ -17,24 +17,24 @@
             <div class="imgOverlay"></div>
             <img style="height:420px;width:100%" src="../Images/store.jpg" alt="First slide">
             <div class="carousel-caption">
-                
-              
+
+
             </div>
         </div>
         <div class="item">
             <div class="imgOverlay"></div>
-            <img style="height:420px;width:100%" src="../Images/sell.jpg" alt="Second slide">
+            <img style="height:420px;width:100%" src="../Images/slide1.jpg" alt="Second slide">
             <div class="carousel-caption">
-                
-              
+
+
             </div>
         </div>
         <div class="item">
             <div class="imgOverlay"></div>
             <img style="height:420px;width:100%" src="../Images/sell2.jpg" alt="Third slide">
             <div class="carousel-caption">
-                
-                
+
+
             </div>
         </div>
     </div>
@@ -44,12 +44,12 @@
     <a class="right carousel-control" href="#themeSlider" data-slide="next">
         <span class="fa fa-chevron-right"></span>
     </a>
-   
+
 </div>
 <div class="olContent f1"><h2 style="color:black">Search Product/Category</h2></div>
 <form method="post">
     <div class="olSearch fr">
-        <input type="text" name="search" placeholder="Enter Keyword"  class="inputComn houseText form-control" />
+        <input type="text" name="search" placeholder="Enter Keyword" class="inputComn houseText form-control" />
         <div class="searchIcon">
             <button type="button" class="searchBtn">
                 <img src="~/Images/searchIcon.png" />
@@ -62,8 +62,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="page-header">
-            <h2>Best Sellers<</h2>
-        </div> 
+            <h2 style="color:mediumpurple"><b>Our Products</b></h2>
+        </div>
     </div>
 </div>
 
@@ -80,11 +80,11 @@
                 <div class="caption">
                     <h5>@item.Inventory_Name</h5>
                     <p>@item.Inventory_Description</p>
-                    <p>@item.Inventory_Price</p>
+                    <p>R @item.Inventory_Price </p>
                     <p>
                         @if (item.Inventory_Quantity > 0)
                         {
-                            using (Html.BeginForm("AddToCart", "Home",  new { productId = item.Inventory_ID },FormMethod.Post))
+                            using (Html.BeginForm("AddToCart", "Home", new { productId = item.Inventory_ID }, FormMethod.Post))
                             {
                                 <button type="submit" class="pull-right"><i class="fa fa-shopping-cart"></i></button>
                             }
@@ -100,9 +100,18 @@
                 </div>
             </div>
         </div>
+
     }
-    
+
 </div>
 <div class="container">
     @Html.PagedListPager(Model.ListOfProducts, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }))
 </div>
+ @*@if(ViewBag.Message != null)
+        {
+<script type="text/javascript">
+                window.onload = function () {
+                    alert("@ViewBag.Message");
+                };
+</script>
+        }*@

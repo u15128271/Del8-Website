@@ -181,133 +181,133 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\Book.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Book_Condition.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Book_Request.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Book_Request_Line.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Book_Status.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Book_Supplier.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Condition.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Customer.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Employee.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Employee_Gender.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Employee_Title.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Inventory.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Inventory_Level.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Inventory_Level_Status.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Inventory_Price.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Inventory_Supplier.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Inventory_Supplier_Order.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Inventory_Type.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TBM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TBM.edmx</DependentUpon>
     </Compile>
     <Compile Include="DAL\Order_Line.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Order_Status.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Payment_Type.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Prospective_Book.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Purchase.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Purchase_Line.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Received_Supplier_Order.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Return_Line.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Return_Sale.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Return_Sale_Line.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Return_Supplier_Order.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Sale.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Sale_Line.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Stock_Turns.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\sysdiagram.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\TaxRate.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\TBMDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TBMDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\TBMDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TBMDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\TBMDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TBMDb.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\User.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\User_Role.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Write_Off_Line.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Write_Off_Stock.cs">
-      <DependentUpon>TBMDb.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -318,6 +318,7 @@
     <Compile Include="Models\Home\HomeIndexVM.cs" />
     <Compile Include="Models\Home\Item.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Mail.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Shopping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -335,15 +336,15 @@
     </Content>
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\sbootstrap.css" />
-    <Content Include="DAL\TBMDb.Context.tt">
+    <Content Include="DAL\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TBMDb.edmx</DependentUpon>
-      <LastGenOutput>TBMDb.Context.cs</LastGenOutput>
+      <DependentUpon>TBM.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DAL\TBMDb.tt">
+    <Content Include="DAL\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TBMDb.edmx</DependentUpon>
-      <LastGenOutput>TBMDb.cs</LastGenOutput>
+      <DependentUpon>TBM.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -370,16 +371,19 @@
     <Content Include="Images\slide4.jpg" />
     <Content Include="Images\store.jpg" />
     <Content Include="Images\TBM.jpg" />
+    <Content Include="Images\TBM.mp4" />
+    <Content Include="Images\VIDEO2.mp4" />
+    <Content Include="Images\whatsapp.jpg" />
     <Content Include="josephjpearce_dribbble_exy-loader.gif" />
     <Content Include="lg.dual-ring-loader.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="DAL\TBMDb.edmx">
+    <EntityDeploy Include="DAL\TBM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TBMDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>TBM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DAL\TBMDb.edmx.diagram">
-      <DependentUpon>TBMDb.edmx</DependentUpon>
+    <Content Include="DAL\TBM.edmx.diagram">
+      <DependentUpon>TBM.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -436,6 +440,9 @@
     <Content Include="Views\Admin\ProductEdit.cshtml" />
     <Content Include="Views\Home\CheckOut.cshtml" />
     <Content Include="Views\Home\CheckoutDetail.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Home\Location.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminStyle\css\" />
