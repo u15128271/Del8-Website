@@ -87,6 +87,12 @@
                             using (Html.BeginForm("AddToCart", "Home", new { productId = item.Inventory_ID }, FormMethod.Post))
                             {
                                 <button type="submit" class="pull-right"><i class="fa fa-shopping-cart"></i></button>
+                                if (null != TempData["alertMessage"])
+                                {
+                                    <script type="text/javascript">
+                                       alert("@TempData["alertMessage"]");
+                                    </script>
+                                }
                             }
                             <h6>Available</h6>
                         }
@@ -95,7 +101,7 @@
                             <h6>Not Available</h6>
                         }
                     </p>
-
+                    
                     @*<div class="product-item-badge">New</div>*@
                 </div>
             </div>
@@ -107,11 +113,3 @@
 <div class="container">
     @Html.PagedListPager(Model.ListOfProducts, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }))
 </div>
- @*@if(ViewBag.Message != null)
-        {
-<script type="text/javascript">
-                window.onload = function () {
-                    alert("@ViewBag.Message");
-                };
-</script>
-        }*@

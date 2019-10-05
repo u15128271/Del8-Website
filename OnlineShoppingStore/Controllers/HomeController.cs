@@ -12,7 +12,8 @@ using System.Net.Mail;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-
+using System.IO;
+using System.Web.UI;
 
 namespace OnlineShoppingStore.Controllers
 {
@@ -37,6 +38,7 @@ namespace OnlineShoppingStore.Controllers
                 });
                
                 Session["cart"] = cart;
+               
                 //ScriptManager.RegisterStartupScript(this,this.GetType(), "popup", "alert('Item added to cart');", true);
                 //Response.Write("Item added to cart");
             }
@@ -75,9 +77,10 @@ namespace OnlineShoppingStore.Controllers
                 }
                 Session["cart"] = cart;
 
-               
+                TempData["alertMessage"] = "Item added to cart";
             }
             //ViewBag.Message = "Item added to cart";
+           
             return Redirect("Index");
         }
 
@@ -136,35 +139,72 @@ namespace OnlineShoppingStore.Controllers
 
         public ActionResult CheckoutDetail()
         {
-           
-            return View("CheckoutDetail");
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter ht = new HtmlTextWriter(sw);
+            //GridView1.RenderControl(ht);
+
+            MailMessage mm = new MailMessage("itumeleng.morei@gmail.com", "scripters.inf370@gmail.com");
+            mm.Body = "<h1>GridView Details</h1></br>" + sw.ToString();
+            mm.Subject = "GridView data";
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            System.Net.NetworkCredential nC = new System.Net.NetworkCredential("itumeleng.morei@gmail.com", "CATHRINe17");
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = nC;
+            //var password = "CATHRINe13";
+            smtp.Send(mm);
+            return View();
+        }
+        //public override void VerifyRenderingInServerForm(Control control)
+        //{
+
+        //}
+        [HttpPost]
+        public ActionResult Contact(string receiver, string subject, string message)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var senderEmail = new MailAddress("itumeleng.morei@gmail.com", "CATHRINe17");
+                    var receiverEmail = new MailAddress(receiver, "Receiver");
+                    var password = "CATHRINe13";
+                    var sub = subject;
+                    var body = message;
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(senderEmail.Address, password)
+                    };
+                    using (var mess = new MailMessage(senderEmail, receiverEmail)
+                    {
+                        Subject = subject,
+                        Body = body
+                    })
+                    {
+                        smtp.Send(mess);
+                    }
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Some Error";
+            }
+            return View();
         }
 
 
-        //[HttpPost]
+
         public ActionResult Contact(/*OnlineShoppingStore.Models.Mail model*/)
         {
-            //MailMessage msg = new MailMessage("itumeleng.morei@gmail.com", "u15128271@tuks.co.za");
-            //msg.Subject = model.Subject;
-            //msg.Body = model.Body;
-            //msg.IsBodyHtml = false;
-
-            //SmtpClient smtp = new SmtpClient();
-            //smtp.Host = "smtp.gmail.com";
-            //smtp.Port = 587;
-            //smtp.EnableSsl = true;
-
-            //NetworkCredential nc = new NetworkCredential("itumeleng.morei@gmail.com", "CATHRINe13");
-            //smtp.UseDefaultCredentials = true;
-            //smtp.Credentials = nc;
-            //smtp.Send(msg);
-            //string SendEmail = ConfigurationManager.AppSettings["SendEmail"];
-            //if(SendEmail.ToLower() == "true")
-            //{
-            //    SendEmail(Exception)
-            //}
-
-            ViewBag.Message = "Email Succesfully sent";
             return View();
         }
 
@@ -178,22 +218,9 @@ namespace OnlineShoppingStore.Controllers
             return View();
         }
       
-        public static void SendEmail(string emailBody)
-        {
-            MailMessage msg = new MailMessage("itumeleng.morei@gmail.com", "u15128271@tuks.co.za");
-            msg.Subject = "TBM";
-            msg.Body = emailBody;
+        
 
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new System.Net.NetworkCredential()
-            {
-                UserName = "itumeleng.morei@gmail.com",
-                Password = "CATHRINe13"
-            };
-            smtp.EnableSsl = true;
-            smtp.Send(msg);
-            
-        }
 
+        
     }
 }

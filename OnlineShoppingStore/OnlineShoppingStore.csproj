@@ -360,6 +360,8 @@
     <Content Include="Images\a1.jpg" />
     <Content Include="Images\about-img - Copy.jpg" />
     <Content Include="Images\bm.jpg" />
+    <Content Include="Images\email.png" />
+    <Content Include="Images\phone.png" />
     <Content Include="Images\pink3.jpg" />
     <Content Include="Images\product2.jpg" />
     <Content Include="Images\q2.jpg" />
